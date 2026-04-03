@@ -67,4 +67,4 @@ async def on_raw_reaction_add(reaction):
         await channel.send(translated_msg, reference=message)
 
 ## SUPER SECRET CODE | DO NOT SHARE IT!
-client.run("TOKEN")
+client.run(TOKEN)
