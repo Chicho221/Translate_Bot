@@ -4,6 +4,7 @@ import re
 import os
 
 TOKEN = os.getenv("DISCORD_TOKEN")
+API_URL = "https://libretranslate.de/translate"
 
 intents = discord.Intents.default()
 intents.reactions = True
@@ -29,7 +30,7 @@ def clean_text(text):
 
 ## TRANSLATE LOGIC
 def translate(text, target, source):
-    response = requests.post("http://localhost:5000/translate", data={
+    response = requests.post("API_URL", data={
         "q": text,
         "source": source,
         "target": target,
@@ -66,4 +67,4 @@ async def on_raw_reaction_add(reaction):
         await channel.send(translated_msg, reference=message)
 
 ## SUPER SECRET CODE | DO NOT SHARE IT!
-client.run(TOKEN)
+client.run("TOKEN")
